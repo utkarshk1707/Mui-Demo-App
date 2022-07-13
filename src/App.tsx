@@ -19,6 +19,21 @@ const theme = createTheme({
     }
   }
 });
+// const theme2 = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#e3cc91',
+//       dark: 'blue',
+//       light: 'green',
+//     },
+//     secondary: {
+//       main: '#e3cc91',
+//       dark: 'blue',
+//       light: 'green',
+//     }
+//   }
+// });
+// BY default it uses primary Palette 
 
 const AppWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(1),
@@ -50,7 +65,8 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 const App = () => {
-const [color,setColor] =useState('')
+const [color,setColor] =useState('');
+
   return (
     <ThemeProvider theme={theme}>
       <AppWrapper>
@@ -64,7 +80,7 @@ const [color,setColor] =useState('')
             </Grid>
             <Grid item xs={3} padding='10px'>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Card Bg</InputLabel>
+                <InputLabel id="demo-simple-select-label">My BG</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -113,6 +129,7 @@ const [color,setColor] =useState('')
     </ThemeProvider>
   );
 }
+// Heads Up for tommorow:
 // Note : 1. Themeing implemented with redux store will be much more robust, as we can design our typography , color pallete,
             // customize components etc. for all of our webThemes for SBN AND HAL ,etc.
 export default App;
