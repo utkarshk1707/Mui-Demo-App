@@ -6,16 +6,14 @@ import { useState } from 'react';
 const MyThemes = {
     sbn: createTheme({
         palette: {
-            primary: {}
-            secondary: {
-                
-            },
+            primary: '#e3cc91',
+            secondary: '#CEE5D0',
         }
     }),
     hal: createTheme({
         palette: {
-            secondary: '#CEE5D0',
-            primary: '#ECB390'
+            primary: '#CEE5D0',
+            secondary: '#ECB390'
         }
     })
 }
@@ -48,44 +46,44 @@ const CardComponent = () => {
     return (
         <ThemeProvider theme={UiTheme}>
             <CardWrapper>
-            <CustomCard>
-                <Grid container my={4}>
-                    <Grid item tablet={12} padding='10px'>
-                        <Typography variant='h4' gutterBottom >
-                            TypogGraphy 1
-                        </Typography>
+                <CustomCard>
+                    <Grid container my={4}>
+                        <Grid item tablet={12} padding='10px'>
+                            <Typography variant='h4' gutterBottom >
+                                TypogGraphy 1
+                            </Typography>
+                        </Grid>
+                        <Grid item tablet={6} padding='10px'>
+                            <FormControl>
+                                <FormLabel id="demo-row-radio-buttons-group-label">Themes</FormLabel>
+                                <RadioGroup
+                                    row
+                                    aria-labelledby="demo-row-radio-buttons-group-label"
+                                    name="row-radio-buttons-group"
+                                    onChange={(e) => {
+                                        let key = e.target.value;
+                                        let setTheme = key === 'primary' ? MyThemes['primary'] : MyThemes['theme2'];
+                                        setUiTheme(setTheme);
+                                    }}
+                                >
+                                    <FormControlLabel value={'theme1'} control={<Radio />} label="Theme1" />
+                                    <FormControlLabel value={'theme2'} control={<Radio />} label="Theme2" />
+                                    <FormControlLabel
+                                        value="disabled"
+                                        disabled
+                                        control={<Radio />}
+                                        label="Default"
+                                    />
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
+                        <Grid item tablet={12} padding='10px'>
+                            <Typography variant='h4' gutterBottom >
+                                Robust Theming
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item tablet={6} padding='10px'>
-                        <FormControl>
-                            <FormLabel id="demo-row-radio-buttons-group-label">Themes</FormLabel>
-                            <RadioGroup
-                                row
-                                aria-labelledby="demo-row-radio-buttons-group-label"
-                                name="row-radio-buttons-group"
-                                onChange={(e) => {
-                                    let key = e.target.value;
-                                    let setTheme = key === 'primary' ? MyThemes['primary'] : MyThemes['theme2'];
-                                    setUiTheme(setTheme);
-                                }}
-                            >
-                                <FormControlLabel value={'theme1'} control={<Radio />} label="Theme1" />
-                                <FormControlLabel value={'theme2'} control={<Radio />} label="Theme2" />
-                                <FormControlLabel
-                                    value="disabled"
-                                    disabled
-                                    control={<Radio />}
-                                    label="Default"
-                                />
-                            </RadioGroup>
-                        </FormControl>
-                    </Grid>
-                    <Grid item tablet={12} padding='10px'>
-                        <Typography variant='h4' gutterBottom >
-                            Robust Theming
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </CustomCard>
+                </CustomCard>
             </CardWrapper>
         </ThemeProvider>
     );
