@@ -4,7 +4,7 @@ import { green } from "@mui/material/colors";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 
 interface ButtonProps{
-  child:String
+  child:string
 }
 
 export const ButtonComponent = ({child}:ButtonProps) => {
