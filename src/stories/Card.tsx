@@ -6,14 +6,15 @@ import { useState } from 'react';
 const MyThemes = {
     sbn: createTheme({
         palette: {
-            primary: '#e3cc91',
-            secondary: '#CEE5D0',
-        }
-    }),
+            primary: {
+                main:'#e3cc91',
+        },
+    }}),
     hal: createTheme({
         palette: {
-            primary: '#CEE5D0',
-            secondary: '#ECB390'
+            primary:{
+                main:'#CEE5D0'
+            } 
         }
     })
 }
@@ -41,7 +42,7 @@ const CustomCard = styled(Card)(({ theme }) => ({
 
 
 const CardComponent = () => {
-    const [UiTheme, setUiTheme] = useState(MyThemes['primary']);
+    const [UiTheme, setUiTheme] = useState(MyThemes['hal']);
 
     return (
         <ThemeProvider theme={UiTheme}>
@@ -62,12 +63,12 @@ const CardComponent = () => {
                                     name="row-radio-buttons-group"
                                     onChange={(e) => {
                                         let key = e.target.value;
-                                        let setTheme = key === 'primary' ? MyThemes['primary'] : MyThemes['theme2'];
+                                        let setTheme = key === 'sbn' ? MyThemes['sbn'] : MyThemes['hal'];
                                         setUiTheme(setTheme);
                                     }}
                                 >
-                                    <FormControlLabel value={'theme1'} control={<Radio />} label="Theme1" />
-                                    <FormControlLabel value={'theme2'} control={<Radio />} label="Theme2" />
+                                    <FormControlLabel value={'sbn'} control={<Radio />} label="Sbn" />
+                                    <FormControlLabel value={'hal'} control={<Radio />} label="Hal" />
                                     <FormControlLabel
                                         value="disabled"
                                         disabled
