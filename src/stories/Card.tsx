@@ -4,16 +4,18 @@ import { blue, green, red } from '@mui/material/colors';
 import { useState } from 'react';
 
 const MyThemes = {
-    theme1: createTheme({
+    sbn: createTheme({
         palette: {
-            sbn: '#e3cc91',
-            hal: '#CEE5D0',
+            primary: {}
+            secondary: {
+                
+            },
         }
     }),
-    theme2: createTheme({
+    hal: createTheme({
         palette: {
-            sbn: '#CEE5D0',
-            hal: '#ECB390'
+            secondary: '#CEE5D0',
+            primary: '#ECB390'
         }
     })
 }
@@ -39,21 +41,13 @@ const CustomCard = styled(Card)(({ theme }) => ({
     marginTop: '5%',
 }));
 
-const CustomButton = styled(Button)(({ theme }) => ({
-
-    borderRadius: '12px',
-    cursor: 'pointer',
-    maxWidth: '80px',
-    '&:hover': {
-        background: green[300]
-    }
-}));
 
 const CardComponent = () => {
-    const [UiTheme, setUiTheme] = useState(MyThemes['theme1']);
+    const [UiTheme, setUiTheme] = useState(MyThemes['primary']);
 
     return (
         <ThemeProvider theme={UiTheme}>
+            <CardWrapper>
             <CustomCard>
                 <Grid container my={4}>
                     <Grid item tablet={12} padding='10px'>
@@ -70,7 +64,7 @@ const CardComponent = () => {
                                 name="row-radio-buttons-group"
                                 onChange={(e) => {
                                     let key = e.target.value;
-                                    let setTheme = key === 'theme1' ? MyThemes['theme1'] : MyThemes['theme2'];
+                                    let setTheme = key === 'primary' ? MyThemes['primary'] : MyThemes['theme2'];
                                     setUiTheme(setTheme);
                                 }}
                             >
@@ -92,6 +86,7 @@ const CardComponent = () => {
                     </Grid>
                 </Grid>
             </CustomCard>
+            </CardWrapper>
         </ThemeProvider>
     );
 }

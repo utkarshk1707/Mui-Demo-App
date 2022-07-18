@@ -12,10 +12,6 @@ declare module '@mui/material/styles' {
         tablet: true;
         desktop: true;
     }
-    interface PaletteOptions {
-        sbn:String,
-        hal:String
-    }
 }
 
 
