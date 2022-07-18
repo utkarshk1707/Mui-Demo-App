@@ -7,14 +7,16 @@ import NavBar from './components/NavBar';
 const MyThemes = {
   theme1: createTheme({
       palette: {
-          sbn: '#e3cc91',
-          hal: '#CEE5D0',
+         primary:{
+          main:'#CEE5D0'
+         }
       }
   }),
   theme2: createTheme({
       palette: {
-          sbn: '#CEE5D0',
-          hal: '#ECB390'
+        primary:{
+          main:'#ECB390'
+        }
       }
   })
 }
